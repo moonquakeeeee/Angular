@@ -1,0 +1,8 @@
+<button (click)="add()">Add</button>
+<app-basic-first #courseRef *ngFor="
+        let item of courseData;
+        index as i;
+        first as isFirst;
+        last as isLast
+    " [index]="i + 1" [class.is-first]="isFirst" [class.is-last]="isLast" [course]="item"
+    (courseSelected)="onClick($event)"></app-basic-first>
