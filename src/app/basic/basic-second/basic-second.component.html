@@ -1,1 +1,14 @@
-<h1>second page</h1>
+<!-- ng 内置pipe -->
+<div>{{displayDate | date: 'MM/dd/yyyy'}}</div>
+<div>{{str1 | uppercase}}</div>
+<div>{{str1 | titlecase}}</div>
+<div>{{str2 | lowercase}}</div>
+<div>{{number1 | number: '2.3-4'}}</div>
+<div>{{number1 | currency: 'EUR'}}</div>
+<div>{{number2 | percent}}</div>
+<ng-container *ngFor="let item of arr | slice:0:1">
+    <div>{{item.id}} ~ {{item.name}}</div>
+</ng-container>
+<ng-container *ngFor="let option of obj | keyvalue">
+    <div>{{option.key}} - {{option.value}}</div>
+</ng-container>

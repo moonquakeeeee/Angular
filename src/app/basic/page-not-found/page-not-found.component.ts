@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'ng-page-not-found',
@@ -10,11 +9,7 @@ export class PageNotFoundComponent implements OnInit {
     engContext = { $implicit: 'World' };
     svkContext = { $implicit: 'Yang', localAge: '18' };
 
-    constructor(private route: ActivatedRoute) {}
+    constructor() {}
 
-    ngOnInit(): void {
-        this.route.queryParams.subscribe((params) => {
-            console.log(params);
-        });
-    }
+    ngOnInit(): void {}
 }

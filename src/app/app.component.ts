@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'angular-learn',
+    selector: 'angular-practice',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-    title = 'angular learn';
+    title = 'angular practice';
 
     onKeyup(ref: any) {
         this.title = ref.value;

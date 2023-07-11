@@ -11,9 +11,16 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { zh_CN } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './router/home/home.component';
+import { AboutComponent } from './router/about/about.component';
+import { LayoutComponent } from './router/layout/layout.component';
+import { NavigationComponent } from './router/navigation/navigation.component';
+import { NewsComponent } from './router/news/news.component';
+import { CompanyComponent } from './router/company/company.component';
+import { IndustryComponent } from './router/industry/industry.component';
 
 registerLocaleData(zh);
 
@@ -25,6 +32,13 @@ registerLocaleData(zh);
         BasicThreeComponent,
         PageNotFoundComponent,
         BasicSummaryComponent,
+        HomeComponent,
+        AboutComponent,
+        LayoutComponent,
+        NavigationComponent,
+        NewsComponent,
+        CompanyComponent,
+        IndustryComponent,
     ],
     imports: [
         BrowserModule,
@@ -32,6 +46,7 @@ registerLocaleData(zh);
         FormsModule,
         HttpClientModule,
         BrowserAnimationsModule,
+        ReactiveFormsModule,
     ],
     providers: [{ provide: NZ_I18N, useValue: zh_CN }],
     bootstrap: [AppComponent],

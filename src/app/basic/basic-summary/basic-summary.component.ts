@@ -18,19 +18,19 @@ import { BasicFirstComponent } from '../basic-first/basic-first.component';
 export class BasicSummaryComponent implements OnInit, AfterViewInit {
     public courseData = mockData;
 
-    // 实现方式1
+    // ViewChild实现方式1
     @ViewChild(BasicFirstComponent, { read: ElementRef })
     public singleData!: ElementRef;
 
-    // 实现方式2
+    // ViewChild实现方式2
     // @ViewChild('courseRef')
     // public singleData!: BasicFirstComponent;
 
-    // @ViewChildren(BasicFirstComponent, { read: ElementRef })
-    // allData!: QueryList<ElementRef>;
+    @ViewChildren(BasicFirstComponent, { read: ElementRef })
+    allData!: QueryList<ElementRef>;
 
-    @ViewChildren('courseRef')
-    allData!: QueryList<BasicFirstComponent>;
+    // @ViewChildren('courseRef')
+    // allData!: QueryList<BasicFirstComponent>;
 
     constructor() {}
 
