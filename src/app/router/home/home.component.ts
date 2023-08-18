@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CanComponentLeave } from 'src/app/guards/unsave.guard';
+import { CanComponentLeave } from 'src/app/shared/guards/unsave.guard';
 
 @Component({
     selector: 'ng-home',
@@ -20,10 +20,12 @@ export class HomeComponent implements OnInit, CanComponentLeave {
     }
 
     jump() {
-        //跳转传递 动态参数/查询参数
+        // 跳转传递 动态参数
         this.router.navigate(['/about', '20', 'woman'], {
+            // 查询参数
             queryParams: {
-                name: 'abc',
+                name: 'sheep',
+                age: '18',
             },
         });
     }

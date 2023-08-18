@@ -10,10 +10,10 @@ import { AboutComponent } from './router/about/about.component';
 import { NewsComponent } from './router/news/news.component';
 import { CompanyComponent } from './router/company/company.component';
 import { IndustryComponent } from './router/industry/industry.component';
-import { AuthGuard } from './guards/auth.guard';
-import { ChildAccessGuard } from './guards/child-access.guard';
-import { UnsaveGuard } from './guards/unsave.guard';
-import { GetNameResolver } from './guards/get-name.resolver';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { ChildAccessGuard } from './shared/guards/child-access.guard';
+import { UnsaveGuard } from './shared/guards/unsave.guard';
+import { GetNameResolver } from './shared/guards/get-name.resolver';
 
 const routes: Routes = [
     {
@@ -71,6 +71,13 @@ const routes: Routes = [
                 // m ---> 获取路由模块集合
                 console.log(m);
                 return m.UserModule;
+            }),
+    },
+    {
+        path: 'http',
+        loadChildren: () =>
+            import('./http-practice/http-practice.module').then((m) => {
+                return m.HttpPracticeModule;
             }),
     },
     //重定向 ---> 系统默认页
