@@ -1,67 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BasicFirstComponent } from './basic/basic-first/basic-first.component';
-import { BasicSecondComponent } from './basic/basic-second/basic-second.component';
-import { BasicSummaryComponent } from './basic/basic-summary/basic-summary.component';
-import { BasicThreeComponent } from './basic/basic-three/basic-three.component';
-import { PageNotFoundComponent } from './basic/page-not-found/page-not-found.component';
-import { HomeComponent } from './router/home/home.component';
-import { AboutComponent } from './router/about/about.component';
-import { NewsComponent } from './router/news/news.component';
-import { CompanyComponent } from './router/company/company.component';
-import { IndustryComponent } from './router/industry/industry.component';
-import { AuthGuard } from './shared/guards/auth.guard';
-import { ChildAccessGuard } from './shared/guards/child-access.guard';
-import { UnsaveGuard } from './shared/guards/unsave.guard';
-import { GetNameResolver } from './shared/guards/get-name.resolver';
+import { PageNotFoundComponent } from './basic-practice/page-not-found/page-not-found.component';
 
 const routes: Routes = [
     {
-        path: 'basic-summary',
-        component: BasicSummaryComponent,
+        path: 'basic-practice',
+        loadChildren: () =>
+            import('./basic-practice/basic-practice.module').then((m) => {
+                return m.BasicPracticeModule;
+            }),
     },
     {
-        path: 'basic-first',
-        component: BasicFirstComponent,
+        path: 'router-practice',
+        loadChildren: () =>
+            import('./router-practice/router-practice.module').then((m) => {
+                return m.RouterPracticeModule;
+            }),
     },
     {
-        path: 'basic-second',
-        component: BasicSecondComponent,
-    },
-    {
-        path: 'basic-three',
-        component: BasicThreeComponent,
-    },
-    {
-        path: 'home',
-        component: HomeComponent,
-        canDeactivate: [UnsaveGuard],
-        resolve: {
-            nameInfo: GetNameResolver,
-        },
-    },
-    {
-        path: 'about/:age/:sex',
-        component: AboutComponent,
-        canActivate: [AuthGuard],
-    },
-    {
-        path: 'news',
-        component: NewsComponent,
-        canActivateChild: [ChildAccessGuard],
-        children: [
-            {
-                path: 'company',
-                component: CompanyComponent,
-                //outlet路由插座命名
-                // outlet: 'left',
-            },
-            {
-                path: 'industry',
-                component: IndustryComponent,
-                // outlet: 'right',
-            },
-        ],
+        path: 'http-practice',
+        loadChildren: () =>
+            import('./http-practice/http-practice.module').then((m) => {
+                return m.HttpPracticeModule;
+            }),
     },
     {
         path: 'user',
@@ -73,17 +34,10 @@ const routes: Routes = [
                 return m.UserModule;
             }),
     },
-    {
-        path: 'http',
-        loadChildren: () =>
-            import('./http-practice/http-practice.module').then((m) => {
-                return m.HttpPracticeModule;
-            }),
-    },
     //重定向 ---> 系统默认页
     {
         path: '',
-        redirectTo: 'home',
+        redirectTo: 'router-practice',
         pathMatch: 'full', //完全匹配
     },
     //通配符路由 ---> 路由使用“先到先得”策略,通配符路由放到最后.

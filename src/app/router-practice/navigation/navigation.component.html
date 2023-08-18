@@ -1,0 +1,51 @@
+<div class="nav">
+    <ul>
+        <li>
+            <a routerLink="/router-practice/home">首页</a>
+        </li>
+        <li>
+            <!-- 查询参数 -->
+            <!-- <a routerLink="/about" [queryParams]="{name:'dream'}">关于</a> -->
+
+            <!-- 动态参数 -->
+            <a [routerLink]="['/router-practice/about','18','man']">关于</a>
+        </li>
+        <li>
+            <a routerLink="/router-practice/news">新闻</a>
+
+            <!-- 通过路由插座命名，同时打开两个路由节点对应的组件。 -->
+            <!-- <a [routerLink]="['/news',{
+                outlets:{
+                    left:['company'],
+                    right:['industry']
+                }
+            }]">
+                新闻
+            </a> -->
+        </li>
+        <hr />
+
+        <li>
+            <a routerLink="/basic-practice/basic-summary">基础1</a>
+        </li>
+        <li>
+            <a routerLink="/basic-practice/basic-second">基础2</a>
+        </li>
+        <li>
+            <a routerLink="/basic-practice/basic-three">基础3</a>
+        </li>
+        <hr />
+
+        <li>
+            <a routerLink="/http-practice/http-basic">http</a>
+        </li>
+
+        <li>
+            <a routerLink="/user/login">登录</a>
+        </li>
+    </ul>
+
+
+
+
+</div>

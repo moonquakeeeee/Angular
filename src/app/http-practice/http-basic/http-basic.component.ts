@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 @Component({
-    selector: 'ng-http-basic',
+    selector: 'ng-practice-http-basic',
     templateUrl: './http-basic.component.html',
     styleUrls: ['./http-basic.component.scss'],
 })
