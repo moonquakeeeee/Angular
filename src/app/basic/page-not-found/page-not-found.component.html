@@ -1,8 +1,8 @@
 <h1>page not found!</h1>
 
-<!-- <ng-container *ngTemplateOutlet="greet"></ng-container>
+<ng-container *ngTemplateOutlet="greet"></ng-container>
 <hr />
-<ng-container *ngTemplateOutlet="eng; context: engContext"></ng-container>
+<ng-container *ngTemplateOutlet="eng; context: {nameKey: 'World'}"></ng-container>
 <hr />
 <ng-container *ngTemplateOutlet="svk; context: svkContext"></ng-container>
 <hr />
@@ -11,10 +11,10 @@
     <span>Hello</span>
 </ng-template>
 
-<ng-template #eng let-name>
+<ng-template #eng let-name="nameKey">
     <span>Hello {{ name }}!</span>
 </ng-template>
 
 <ng-template #svk let-person let-age="localAge">
     <span>Dominic {{ person }} {{ age }}!</span>
-</ng-template> -->
+</ng-template>

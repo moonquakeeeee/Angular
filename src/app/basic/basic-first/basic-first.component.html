@@ -1,0 +1,16 @@
+<ng-container *ngIf="course">
+    <h3>{{ index + "-" + course.description }}</h3>
+
+    <!-- 根据一个提前备好的 TemplateRef 插入一个内嵌视图 -->
+    <ng-template #noImage>
+        <ng-container *ngTemplateOutlet="noImageTempRef; context: {customizeKey: course.category}"></ng-container>
+        <ng-container *ngTemplateOutlet="noImageTempRef; context: {customizeKey: course.description}"></ng-container>
+    </ng-template>
+
+    <ng-content select=".flag" *ngIf="course.iconUrl; else noImage"></ng-content>
+
+    <ng-content></ng-content>
+
+    <button (click)="viewButton(course)">View Category</button>
+
+</ng-container>

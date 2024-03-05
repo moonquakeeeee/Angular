@@ -7,6 +7,7 @@ import {
     Input,
     OnInit,
     Output,
+    TemplateRef,
 } from '@angular/core';
 
 @Component({
@@ -17,8 +18,11 @@ import {
 export class BasicFirstComponent implements OnInit, AfterViewInit {
     @Input() course: any;
     @Input() index: any;
+    @Input() noImageTempRef!: TemplateRef<any>;
+
     @Output('courseSelected') courseClick = new EventEmitter();
-    // 获取ng-content内部的数据，用法和ViewChild及ViewChildren相似。
+
+    // 获取ng-content内部的数据，用法和ViewChild及ViewChildren相同。
     @ContentChild('contentRef') content!: ElementRef;
 
     constructor() {}
@@ -28,7 +32,7 @@ export class BasicFirstComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        // console.log('contentRef', this.content);
+        console.log('contentRef', this.content);
     }
 
     ngOnInit(): void {

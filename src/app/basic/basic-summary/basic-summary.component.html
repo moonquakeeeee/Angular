@@ -1,0 +1,18 @@
+<section class="part">
+    <button (click)="add()">Add</button>
+
+    <ng-template #blankImage let-type="customizeKey">
+        <pre>{{type}} no image info.</pre>
+    </ng-template>
+
+    <ng-practice-basic-first #courseRef *ngFor="let item of courseData; index as i; first as isFirst; last as isLast"
+        [index]="i + 1" [class.is-first]="isFirst" [class.is-last]="isLast" [course]="item"
+        [noImageTempRef]="blankImage" (courseSelected)="onClick($event)">
+
+        <img class="flag" [src]="item.iconUrl" [alt]="item.longDescription" />
+        <div #contentRef [ngClass]="'content-ref-' + i">
+            <div class="text">this is test content ref text.</div>
+        </div>
+
+    </ng-practice-basic-first>
+</section>
